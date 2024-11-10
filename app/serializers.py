@@ -1,7 +1,17 @@
+import json
 from xml.etree import ElementTree
 
-from app.books.book import Book
-from app.serializers.book_serializer import BookSerializer
+from app.book import Book
+
+
+class BookSerializer:
+    def serialize(self, book: Book) -> str:
+        ...
+
+
+class JSONSerializer(BookSerializer):
+    def serialize(self, book: Book) -> str:
+        return json.dumps({"title": book.title, "content": book.content})
 
 
 class XMLSerializer(BookSerializer):
