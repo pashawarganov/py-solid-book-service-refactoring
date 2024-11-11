@@ -1,10 +1,12 @@
 import json
+from abc import ABC, abstractmethod
 from xml.etree import ElementTree
 
 from app.book import Book
 
 
-class BookSerializer:
+class BookSerializer(ABC):
+    @abstractmethod
     def serialize(self, book: Book) -> str:
         ...
 

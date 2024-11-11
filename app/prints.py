@@ -1,7 +1,10 @@
+from abc import ABC, abstractmethod
+
 from app.book import Book
 
 
-class BookPrint:
+class BookPrint(ABC):
+    @abstractmethod
     def print_book(self, book: Book) -> None:
         ...
 
